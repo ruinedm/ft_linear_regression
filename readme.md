@@ -30,14 +30,13 @@ mileage,price
 
 
 ## 📁 File Structure
-.
-├── train.py            # Training script
-├── predict.py          # Prediction script
-├── data.csv            # Dataset file (mileage,price)
-├── model_params.json   # Saved model parameters (outputs of train.py)
-├── visualize.py        # Graphs the dataset + regression line (TO-DO)
-├── evaluate.py         # Evaluates model precision (TO-DO)
-└── README.md           # This file
+train.py            # Training script
+predict.py          # Prediction script
+data.csv            # Dataset file (mileage,price)
+model_params.json   # Saved model parameters (outputs of train.py)
+visualize.py        # Graphs the dataset + regression line (TO-DO)
+evaluate.py         # Evaluates model precision (TO-DO)
+README.md           # This file
 
 
 
