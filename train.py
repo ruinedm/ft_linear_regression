@@ -3,6 +3,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import json
+import sys
+
 
 data_array = np.loadtxt('data.csv', delimiter=',', skiprows=1)
 mileage_data = data_array[:, 0] #inputs
@@ -38,7 +40,7 @@ class LinearRegression:
         return self.__weight * x + self.__bias
     
     def train(self):
-        for epoch in range(self.__max_epoch):
+        for _ in range(self.__max_epoch):
             errors = self.__predict_error(self.__inputs) - self.__targets
             self.__bias -= self.__learning_rate * np.sum(errors) / self.__m
             self.__weight -= self.__learning_rate * np.sum(errors * self.__inputs) / self.__m
@@ -53,8 +55,11 @@ class LinearRegression:
 
 
 if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: python3 train.py [filename]", file=sys.stderr)
+        exit(1)
     try:
-        data_array = np.loadtxt('data.csv', delimiter=',', skiprows=1)
+        data_array = np.loadtxt(sys.argv[1], delimiter=',', skiprows=1)
         mileage_data = data_array[:, 0]
         price_data = data_array[:, 1]
     except Exception as e:
